@@ -159,13 +159,21 @@ function App() {
       keywordFilterFlg = false;
     }
 
+    console.log(searchConditions);
+
     // 作成日が空欄だったらフラグをfalseにし、フィルターをかけない
-    if (!searchConditions.keyWord.trim()) {
+    if (
+      !searchConditions.createdAtStart.trim() ||
+      !searchConditions.createdAtEnd.trim()
+    ) {
       createdAtFlg = false;
     }
 
     // 期限が空欄だったらフラグをfalseにし、フィルターをかけない
-    if (!searchConditions.keyWord.trim()) {
+    if (
+      !searchConditions.timeLimitStart.trim() ||
+      !searchConditions.timeLimitEnd.trim()
+    ) {
       timeLimitFlg = false;
     }
 
@@ -216,13 +224,13 @@ function App() {
 
     // createdAtFlgが立っている場合のみ作成日フィルターをかける
     if (createdAtFlg) {
-      //TODO 作成日フィルターの処理
+      //TODO 作成日フィルターをかけ、結果をfilteredTodoに格納
       // filteredTodo =
     }
 
     // timeLimitFlgが立っている場合のみ期限フィルターをかける
     if (timeLimitFlg) {
-      //TODO 期限フィルターの処理
+      //TODO 期限フィルターをかけ、結果をfilteredTodoに格納
       // filteredTodo =
     }
 
